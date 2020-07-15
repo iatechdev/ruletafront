@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Ruleta</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="estilo.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;900&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div  class="msg">
+        <h2>GANADOR</h2>
+		<h3>JORGE LEON</h3>		
+	</div>
+<div class="contruleta">
+	<div id="dinero"></div>
+	<button class="btn" id="jugar">JUGAR</button>
+
+	<div class="container">
+		<div class="vara"><img src="./img/puntero.svg"></div>
+		<img src="./img/imagen.svg" id="ruleta">
+		<img src="./img/luces.svg" id="luces">
+		<div id="./img/sombraruleta"> </div>
+		<img src="./img/base.svg" id="base">
+	</div>
+   <div class="copy">
+	   Diseñado y desarrollado por <img src="./img/Logo.svg">
+   </div>
+</div>
+	<script>
+		const ruleta = document.querySelector("#ruleta");
+		const jugar = document.querySelector("#jugar");
+		jugar.addEventListener("click", calcular);
+			function calcular() {
+				let rand = Math.random() * 7200;
+				ruleta.style.transform = "rotate(" + rand + "deg)";
+				setTimeout(()=>{
+						$(".msg").show();
+						$("#jugar").hide();
+						$(".contruleta").addClass("blur")
+				},5000);
+			}
+           function userViva(doc){
+				doc = atob(doc);
+				doc = doc.split(",")
+				var datos = {
+					IdentificationNumber : doc[1],
+					CodeIdentificationType : doc[0]
+				}
+				var datos = JSON.stringify(datos);
+				$.ajax({
+					type:"POST", 
+					contentType: "application/json",
+					data:datos,
+					url:"https://ruletaviva.iatech.com.co:4003/api/ruleta/user",
+					success:function(data){ 											
+						if(data.data.st==1){							
+							$(".msg h2").html("GANADOR");
+							$(".msg h3").html(data.data.name);
+						}else{
+							$(".msg h2").html("SIGUE INTENTANDO");
+							$(".msg h3").html(data.data.name);
+						}
+						$("#jugar").show();			
+					},
+					error: function (xhr, ajaxOptions, thrownError) {						
+						$(".msg h2").html("VERIFICA LA CONEXIÓN");
+						$(".msg h3").html("");
+						$(".msg").show();
+						$("#jugar").hide();
+						$(".contruleta").addClass("blur")
+					}
+				})
+		   }
+			function getParameterByName(name) {
+				name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+				var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+				results = regex.exec(location.search);
+				return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+			}
+			var doc = getParameterByName('doc');
+			userViva(doc)
+			$(function(){
+				$(document).bind("contextmenu",function(e){
+					return false;
+				});
+			});
+	</script>
+</body>
+</html>

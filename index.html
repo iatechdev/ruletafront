@@ -5,23 +5,46 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="estilo.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;900&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,700;1,700&display=swap"
+   	rel="stylesheet">
 </head>
 <body>
 	<div  class="msg">
-        <h2>GANADOR</h2>
-		<h3>JORGE LEON</h3>		
+		<div class="close">x</div>
+        <h2></h2>
+		<h3></h3>	
+		<p></p>	
 	</div>
 <div class="contruleta">
+	<div class="partner">
+        <div class="partnerone">
+			 <img src="./img/logoviva.svg" alt="">            
+		</div>
+        <div class="partnertwo">
+             <img src="./img/logobenedan.png">
+        </div>
+	</div>
+	<div class="clr"></div>
 	<div id="dinero"></div>
-	<button class="btn" id="jugar">JUGAR</button>
+	
 
 	<div class="container">
-		<div class="vara"><img src="./img/puntero.svg"></div>
-		<img src="./img/imagen.svg" id="ruleta">
-		<img src="./img/luces.svg" id="luces">
-		<div id="sombraruleta"> </div>
-		<img src="./img/base.svg" id="base">
+        <div class="row">
+			<div class="col col1">
+				<img src="./img/text.svg">
+				<h2>Gana un bono de $200.000</h2>
+				<button class="btn" id="jugar">JUGAR</button>
+			</div>
+			<div class="col col2">
+				<img src="./img/letrero.svg" class="letrero">
+				<div class="vara"><img src="./img/puntero.svg"></div>
+				<img src="./img/imagen.svg" id="ruleta">
+				<img src="./img/luces.svg" id="luces">
+				<div id="sombraruleta"> </div>
+				<img src="./img/base.svg" id="base">
+			</div>
+		</div>
+
 	</div>
    <div class="copy">
 	   Diseñado y desarrollado por <img src="./img/Logo.svg">
@@ -30,6 +53,8 @@
 	<script>
 		const ruleta = document.querySelector("#ruleta");
 		const jugar = document.querySelector("#jugar");
+		const cerrar = document.querySelector(".close");
+		cerrar.addEventListener("click", cerrarVentana);
 		jugar.addEventListener("click", calcular);
 			function calcular() {
 				let rand = Math.random() * 7200;
@@ -57,8 +82,9 @@
 						if(data.data.st==1){							
 							$(".msg h2").html("GANADOR");
 							$(".msg h3").html(data.data.name);
+							$(".msg p").html(data.data.msg);
 						}else{
-							$(".msg h2").html("SIGUE INTENTANDO");
+							$(".msg h2").html("NO GANASTE GRACIAS POR ACTUALIZAR SUS DATOS");
 							$(".msg h3").html(data.data.name);
 						}
 						$("#jugar").show();			
@@ -85,6 +111,11 @@
 					return false;
 				});
 			});
+            function cerrarVentana(){
+				window.open('https://www.ccviva.com/', '_self');
+				window.close();				
+			}
+			
 	</script>
 </body>
 </html>

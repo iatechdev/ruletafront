@@ -4,7 +4,7 @@
 	text-align: center;
 }
 html,body{
-    background: transparent radial-gradient(closest-side at 50% 50%, #FFFFFF 0%, #FFDEA8 100%) 0% 0% no-repeat padding-box;
+    background: transparent radial-gradient(closest-side at 61% 59%, #1D6584 0%, #5E97B0 89%, #649CB4 100%) 0% 0% no-repeat padding-box;
     opacity: 1;
     top: 0px;
     left: 0px;
@@ -12,11 +12,11 @@ html,body{
     bottom: 0;
     right: 0;
     position: absolute;
-    font-family: 'Roboto',
+    font-family: 'Rubik',
     sans-serif;
 }
 h1,h2,h3,p{
-    font-family: 'Roboto',
+    font-family: 'Rubik',
     sans-serif;
 }
 .msg{
@@ -39,6 +39,18 @@ h1,h2,h3,p{
     color: #8c1c85;
     font-size: 50px;
 }
+.col h2 {
+    color: white;
+    font-size: 2.5em;
+    font-weight: 500;
+}
+.col1 {
+    text-align: center;
+}
+.col1 img{
+    max-width: 80%;
+    margin: 80px 0 5px 0;
+}
 .msg h3 {
     color: #8c1c85;
     font-size: 30px;
@@ -51,49 +63,73 @@ h1,h2,h3,p{
     margin: 20px 0 20px 0;
     text-align: center;
 }
+.msg p {
+   color: #404040;
+}
 .blur{
   filter: blur(4px);
 }
-
+.close{
+    position: absolute;
+    top: -25px;
+    right: 0;
+    color: #8c1c85;
+    font-size: 40px;
+    cursor: pointer;
+}
 .container{
-	max-width: 500px;
+	max-width: 1100px;
 	margin: 0 auto;
 	text-align: center;
 	position: relative;
 }
+.col{
+   width: 50%;
+   float: left;
+   position: relative;
+}
+
 .vara {
 	width: 100px;
 	margin: auto;
 	position: relative;
-	top: 56px;
+	top: 0;
 	z-index: 15;
 }
 .copy{
     height: 23px;
     text-align: left;
-    font: Regular 20px/24px Helvetica Neue;
     letter-spacing: 0px;
-    color: #707070;
+    color: #fff;
     opacity: 1;
     position: absolute;
     right: 2%;
+    font-size: 14px;
     bottom: 5%;
+}
+.copy img{
+    width: 70px;
+}
+.clr{
+    clear: both;
+    display: block;
+    width: 100%;
 }
 img {
 	transition: all 5s;
 	max-width: 100%;
 }
 #ruleta{
-    max-width: 400px;
+    max-width: 300px;
     position: absolute;
-    top: 70px;
+    top: 20px;
     left: 0;
     right: 0;
 	margin: auto;
 	z-index: 11;
 }
 .btn {
-    top: 40%;
+    margin: 30px 0 0 0;
     padding: 30px;
     background: #E2278C 0% 0% no-repeat padding-box;
     border-radius: 80px;
@@ -101,46 +137,44 @@ img {
     width: 300px;
     color: white;
     font-size: 40px;
-    position: absolute;
-    right: 5%;
-    display: none;
-    outline:none;
     border: 0;
     -webkit-box-shadow: inset 10px -15px 2px -8px rgba(147, 17, 87);
     -moz-box-shadow: inset 10px -15px 2px -8px rgba(147, 17, 87);
     box-shadow: inset 10px -15px 2px -8px rgb(147, 17, 87);
-   cursor: pointer;
-
+    cursor: pointer;
+    font-weight: bold;
+    display: none;
+    outline: none; 
 }
 #luces{
-    max-width: 400px;
+    max-width: 325px;
     position: absolute;
-    top: 135px;
+    top: 60px;
     left: 0;
     right: 0;
     margin: auto;
     z-index: 12;
 }
 #sombraruleta{
-    width: 400px;
+    width: 320px;
     position: absolute;
-    top: 70px;
+    top: 10px;
     left: 0;
     right: 0;
     margin: auto;
     z-index: 7;
-    background: #f30842;
-    height: 400px;
+    background: #649CB4;
+    height: 320px;
     border-radius: 200px 200px 200px 200px;
     -moz-border-radius: 200px 200px 200px 200px;
     -webkit-border-radius: 200px 200px 200px 200px;
     border: 0px solid #000000;
-    z-index:3;
+    z-index: 3;
 }
 #base{
     max-width: 400px;
     position: absolute;
-    top: 380px;
+    top: 310px;
     left: 0;
     right: 0;
     margin: auto;
@@ -150,4 +184,27 @@ img {
 	position: absolute;
 	font-size: 40px;
 	padding: 20px;
+}
+.partnerone{
+    float: left;
+    margin: 20px;
+    max-width: 200px;
+    border-right: 1px solid #fff;
+    padding: 0 30px 0 0;
+}
+.partnertwo {
+    float: left;
+    margin: 20px;
+    max-width: 200px;
+}
+.partnertwo img{
+   max-height: 95px;
+}
+.letrero{
+    width: 200px;
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+    margin: auto;
 }

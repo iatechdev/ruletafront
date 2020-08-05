@@ -28,8 +28,9 @@
 	<div class="container">
         <div class="row">
 			<div class="col col1">
-				<img src="./img/text.svg">
-				<h2>Gana un bono de $200.000</h2>
+				<img src="./img/gracias.svg" class="txtgracias">
+				<img src="./img/presiona.svg" class="txtpreciona">
+				<img src="./img/gana.svg" class="txtgana">
 				<button class="btn" id="jugar">JUGAR</button>
 			</div>
 			<div class="col col2">
@@ -87,11 +88,11 @@
 						$("#jugar").show();			
 					},
 					error: function (xhr, ajaxOptions, thrownError) {						
-						$(".msg h2").html("VERIFICA LA CONEXIÓN");
+						/*$(".msg h2").html("VERIFICA LA CONEXIÓN");
 						$(".msg h3").html("");
 						$(".msg").show();
 						$("#jugar").hide();
-						$(".contruleta").addClass("blur")
+						$(".contruleta").addClass("blur")*/
 					}
 				})
 		   }
